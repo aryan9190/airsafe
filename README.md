@@ -49,12 +49,17 @@ Run the AirSafe terminal interface:
 python main.py
 ```
 
+Run the AirSafe terminal dashboard:
+```bash
+python ui_dashboard.py
+```
+
 Launch the web dashboard:
 ```bash
 python web_ui.py
 ```
 
-Access the dashboard at:
+Access the web dashboard at:
 ```
 http://localhost:5000
 ```

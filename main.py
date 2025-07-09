@@ -2,7 +2,7 @@ def main_entry():
     import time
     from config import DATA_SOURCE, UPDATE_INTERVAL
     from aircraft_data import fetch_aircraft_data
-    from squwak_utils import extract_emergencies
+    from squawk_utils import extract_emergencies
     from ui_terminal import print_header, print_emergencies
     from alert_engine import log_alert, play_alert_sound
     print_header()

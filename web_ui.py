@@ -34,5 +34,5 @@ def api_history():
 def api_alerts():
     return jsonify(parse_alert_log())
 
-if __name__ == 'main':
+if __name__ == '__main__':
     app.run(debug=True, port=5000)

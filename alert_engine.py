@@ -1,9 +1,7 @@
 import os
 import time
+import simpleaudio as sa
 from config import ALERT_LOG_PATH, ALERT_SOUND_PATH
-from playsound import playsound
-
-logged=set()
 
 def log_alert(entry):
     os.makedirs(os.path.dirname(ALERT_LOG_PATH), exist_ok=True)
@@ -11,6 +9,7 @@ def log_alert(entry):
     with open(ALERT_LOG_PATH, "a") as log_file:
         log_file.write(f"[{timestamp}] {entry['flight']} | {entry['squawk']} - {entry['type']} | ALT: {entry['altitude']} | HEX: {entry['hex']}\n")
 
-def play_alert_sound():                 # make sure the file is there and hope there is no alert sound when you run this program
+def play_alert_sound():
     if os.path.exists(ALERT_SOUND_PATH):
-        playsound(ALERT_SOUND_PATH)
+        wave_obj = sa.WaveObject.from_wave_file(ALERT_SOUND_PATH)
+        wave_obj.play()

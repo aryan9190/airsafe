@@ -1,6 +1,6 @@
 EMERGENCY_CODES = {"7500":"Hijack", "7600":"Radio Failure", "7700":"General Emergency"} #that's all emergencies i could think of
 
-def classify_emergencies(squawk):
+def classify_squawk(squawk):
     return EMERGENCY_CODES.get(squawk, "Normal")
 
 def is_emergency(squawk):

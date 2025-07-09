@@ -11,7 +11,7 @@ def index():
     return render_template('index.html')
 
 @app.route('/alerts')
-def alert_page:
+def alert_page():
     return render_template('alert.html')
 
 @app.route('/api/emergencies')

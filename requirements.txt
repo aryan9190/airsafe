@@ -2,4 +2,4 @@ requests
 rich
 Flask
 colorama
-playsound
+simplesound

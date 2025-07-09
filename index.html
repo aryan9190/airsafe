@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" >
+        <title>AirSafe Web UI</title>
+        <style>
+            :root {color-scheme: light dark;}
+            body {font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; margin: 0; padding: 2rem; background: #f0f4f8; color: #000;}
+            @media (prefers-color-scheme: dark) {
+                body {background: #121212; color: #fff;}
+                th {background:#1e1e1e; color: #fff;}
+                tr:nth-child(even) {background: #222;}}
+            h1 {text-align: center;}
+            table {width: 100%; border-collapse: collapse; margin-top: 2rem;}
+            th, td{padding: 0.75rem 1rem; text-align: center; border: 1px solid #ccc;}
+            th{background: #2c3e50; color: #fff;}
+            tr:nth-child(even) {background: #eef2f7;}
+            .warn { background: #fdd;}
+            @media (prefers-color-scheme: dark){.warn{background: #a70000;}}
+            footer{text-align: center; margin-top: 3rem; color: #888;}
+        </style>
+    </head>
+    <body>
+        <h1>AirSafe | Emeregncy Dashboard</h1>
+        <table id="emergency-table">
+            <thead>
+                <tr><th>Flight</th><th>Squawk</th><th>Type</th><th>Altitude</th><th>Hex</th></tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <footer>Updates in every 5 seconds</footer>
+        <script>
+            async function fetchData(){
+                try{
+                    const res = await fetch('/api/emergencies');
+                    const data = await res.json();
+                    const tbody = document.querySelector('#emergency-table tbody');
+                    tbody.innerHTML='';
+                    data.forEach(e=>{
+                        const row = document.createElement('tr');
+                        if (['7500', '7600', '7700'].includes(e.squawk)) row.classList.add('warn');
+                        row.innerHTML=`
+                            <td>${e.flight}</td>
+                            <td>${e.squawk}</td>
+                            <td>${e.type}</td>
+                            <td>${e.altitude}</td>
+                            <td>${e.hex}</td>`;
+                        tbody.appendChild(row);
+                    });
+                }
+                catch (err) {console.error('Error:', err); }
+            }
+            fetchData(); setInterval(fetchData, 5000);
+        </script>
+    </body>
+</html>

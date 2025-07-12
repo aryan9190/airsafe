@@ -2,3 +2,5 @@ DATA_SOURCE = "http://localhost:8080/data/aircraft.json" #make sure the rtl-sdr 
 UPDATE_INTERVAL = 5 # in seconds
 ALERT_SOUND_PATH = "assets/alert.wav"
 ALERT_LOG_PATH = "data/alerts.log"
+SUBSCRIBERS_FILE = "data/subscribers.json"
+TELEGRAM_BOT_TOKEN = ""

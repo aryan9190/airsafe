@@ -1,6 +1,6 @@
 # AirSafe
 
-AirSafe is a real-time aircraft emergency detection and alerting system powered by RTL-SDR and [dump1090](https://github.com/flightaware/dump1090). It monitors aircraft squawk codes to detect life-threatening aviation emergencies such as hijacks, radio failures, or general distress situations. Built for Waveband (YSWS) by Hack Club.
+AirSafe is a real-time aircraft emergency detection and alerting system powered by RTL-SDR and [dump1090](https://github.com/antirez/dump1090). It monitors aircraft squawk codes to detect life-threatening aviation emergencies such as hijacks, radio failures, or general distress situations. Built for Waveband (YSWS) by Hack Club.
 
 This project was inspired by the tragic Air India Express crash near Ahmedabad and aims to build public awareness and early response capability.
 

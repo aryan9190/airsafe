@@ -22,6 +22,11 @@ AirSafe connects to your local dump1090 server (`localhost:8080/data/aircraft.js
 - Plays an audible alarm
 - Displays the emergency in both terminal and web UIs
 
+## Install PIP
+```
+pip install airsafe
+```
+
 ## Requirements
 
 - Python 3.8+
